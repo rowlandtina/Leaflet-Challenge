@@ -13,6 +13,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     id: "mapbox/streets-v11",
     accessToken: API_KEY
 }).addTo(map);
+
 // Use this link to get the geojson data.
 var link = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
 function getColor(mag){
@@ -34,18 +35,23 @@ function getColor(mag){
     return color;
 }
 // Grabbing our GeoJSON data..
+d3.json(link).then(function(data){
+  console.log(data);
+  L.geoJson(data, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            color: 'black',
+            fillColor: getColor(feature.properties.mag),
+            radius: feature.properties.mag*10,
+            fillOpacity: 1,
+        });
+    },
+}).addTo(map);
+})
 d3.json(link, function (data) {
+  console.log(data);
     // Creating a geoJSON layer with the retrieved data
-    L.geoJson(data, {
-        pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng, {
-                color: 'black',
-                fillColor: getColor(feature.properties.mag),
-                radius: feature.properties.mag*10,
-                fillOpacity: 1,
-            });
-        },
-    }).addTo(map);
+   
     // Passing in our style object
 });
 

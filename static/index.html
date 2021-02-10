@@ -8,23 +8,25 @@
     <title>Geo JSON</title>
 
     <!--Leaflet CSS-->
-    <link
-      rel="stylesheet"
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+     
+    <!-- rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
-     
+      -->
     />
     <!--D3 cdn-->
     <script src="https://d3js.org/d3.v6.min.js"></script>
 
     <!-- Our CSS -->
-    <link rel="stylesheet" type="static/css" href="style.css" />
+    <!-- <link rel="stylesheet" type="static/css" href="./css/style.css" /> -->
+    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
     <div class="title">USGS EARTHQUAKES IN THE LAST 7 DAYS</div>
     <!--The div that holds  our map -->
-    <div id="map"></div>
+      <div id="map"></div>
     <!--Leaflet JS -->
     <!--Make sure to put this AFTER Leaflet's CSS -->
     <script
@@ -33,9 +35,11 @@
       crossorigin=""
     ></script>
     <!--API Key -->
-    <script type="text/javascript" src="../static/js/config.js"></script>
+    <script type="text/javascript" src="./js/config.js"></script>
     <!-- JS  -->
-    <script type="text/javascript" src="../static/js/logic.js"></script>
+    <script type="text/javascript" src="./js/logic.js"></script>
+
+    <!-- <script type="text/javascript" src="./js/copy logic.js"></script> -->
 
     </body>
 </html>
